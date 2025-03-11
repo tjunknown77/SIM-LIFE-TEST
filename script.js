@@ -73,13 +73,18 @@ function uploadPlayerImage(event) {
     }
 }
 
+function startGame() {
+    gameState.player.name = document.getElementById("playerName").value || "You";
+    gameState.player.gender = document.getElementById("playerGender").value;
+    document.getElementById("gameArea").innerHTML = `<h2>Welcome, ${gameState.player.name}!</h2><p>Your adventure begins...</p>`;
+    displayGameState();
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("imageUpload").addEventListener("change", uploadPlayerImage);
+    document.getElementById("startGameButton").addEventListener("click", startGame);
 });
 
-// Initialize the game
-initializeNPCs();
-displayGameState();
 // Initialize the game
 initializeNPCs();
 displayGameState();
