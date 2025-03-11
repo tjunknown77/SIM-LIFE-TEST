@@ -80,3 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
 // Initialize the game
 initializeNPCs();
 displayGameState();
+// Initialize the game
+initializeNPCs();
+displayGameState();
