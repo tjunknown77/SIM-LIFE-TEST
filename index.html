@@ -9,9 +9,9 @@
 </head>
 <body>
     <header>
-        <h1>SimLife: High School Adventure</h1>
+        <h1>SimLife: High School Journey</h1>
     </header>
-    <main>
+    <main id="startScreen">
         <section id="characterCreation">
             <h2>Character Creation</h2>
             <label for="playerName">Name:</label>
@@ -26,7 +26,17 @@
             <img id="playerImage" src="https://via.placeholder.com/100" alt="Player Image">
             <button id="startGameButton">Start Game</button>
         </section>
-        <section id="gameArea"></section>
+    </main>
+    <main id="gameUI" style="display:none;">
+        <div id="hud">
+            <h2 id="hudTitle"></h2>
+            <p>Day: <span id="dayCounter"></span></p>
+            <p>Energy: <span id="energyCounter"></span></p>
+            <p>Social: <span id="socialCounter"></span></p>
+            <p>Money: $<span id="moneyCounter"></span></p>
+        </div>
+        <div id="map"></div>
+        <div id="activities"></div>
     </main>
 </body>
 </html>

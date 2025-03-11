@@ -28,11 +28,16 @@ const locations = {
 function startGame() {
     gameState.player.name = document.getElementById("playerName").value || "You";
     gameState.player.gender = document.getElementById("playerGender").value;
-    document.getElementById("gameArea").innerHTML = `
-        <h2>Welcome, ${gameState.player.name}!</h2>
-        <p>Your adventure begins...</p>
-        <div id='map'></div>
-        <div id='activities'></div>`;
+    document.body.style.backgroundImage = "url('background.jpg')";
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("gameUI").style.display = "block";
+
+    document.getElementById("hudTitle").innerText = `${gameState.player.name}'s Journey`;
+    document.getElementById("dayCounter").innerText = gameState.day;
+    document.getElementById("energyCounter").innerText = gameState.player.energy;
+    document.getElementById("socialCounter").innerText = gameState.player.social;
+    document.getElementById("moneyCounter").innerText = gameState.player.money;
+
     displayMap();
 }
 
@@ -48,23 +53,22 @@ function displayMap() {
 function moveToLocation(location) {
     if (locations[location]) {
         gameState.player.location = location;
-        console.log(`Moved to: ${location} - ${locations[location]}`);
+        document.getElementById("activities").innerHTML = `<h3>Activities in ${location}</h3>
+        <button onclick='triggerEvent()'>Do Something</button>`;
     }
 }
 
-function uploadPlayerImage(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onloadend = function() {
-            gameState.player.image = reader.result;
-            document.getElementById("playerImage").src = reader.result;
-        };
-        reader.readAsDataURL(file);
-    }
+function triggerEvent() {
+    const events = [
+        "You scored the winning touchdown! (+10 Social, +20 Money)",
+        "You got a perfect score on the test! (+15 Grades)",
+        "You helped a teammate train! (+10 Energy)",
+        "You met a new friend! (+10 Social)"
+    ];
+    const event = events[Math.floor(Math.random() * events.length)];
+    alert(event);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("imageUpload").addEventListener("change", uploadPlayerImage);
     document.getElementById("startGameButton").addEventListener("click", startGame);
 });
