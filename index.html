@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>SimLife: High School Journey</h1>
+        <h1>SimLife: High School Adventure</h1>
     </header>
     <main id="startScreen">
         <section id="characterCreation">
@@ -28,6 +28,11 @@
         </section>
     </main>
     <main id="gameUI" style="display:none;">
+        <div id="sideMenu">
+            <button onclick="openUI('createSim')">Create/Edit Sim</button>
+            <button onclick="openUI('relationships')">Check Relationships</button>
+            <button onclick="openUI('stats')">View Stats</button>
+        </div>
         <div id="hud">
             <h2 id="hudTitle"></h2>
             <p>Day: <span id="dayCounter"></span></p>
@@ -37,6 +42,7 @@
         </div>
         <div id="map"></div>
         <div id="activities"></div>
+        <div id="uiContent"></div>
     </main>
 </body>
 </html>

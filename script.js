@@ -28,9 +28,9 @@ const locations = {
 function startGame() {
     gameState.player.name = document.getElementById("playerName").value || "You";
     gameState.player.gender = document.getElementById("playerGender").value;
-    document.body.style.backgroundImage = "url('background.jpg')";
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("gameUI").style.display = "block";
+    document.body.style.backgroundImage = "url('map.png')";
 
     document.getElementById("hudTitle").innerText = `${gameState.player.name}'s Journey`;
     document.getElementById("dayCounter").innerText = gameState.day;
@@ -42,7 +42,7 @@ function startGame() {
 }
 
 function displayMap() {
-    let mapHTML = "<h3>Explore the School</h3><div class='map-buttons'>";
+    let mapHTML = "<h3>Click on a Location</h3><div class='map-container'>";
     for (const location in locations) {
         mapHTML += `<button class='map-btn' onclick="moveToLocation('${location}')">${location}</button>`;
     }
@@ -58,15 +58,19 @@ function moveToLocation(location) {
     }
 }
 
-function triggerEvent() {
-    const events = [
-        "You scored the winning touchdown! (+10 Social, +20 Money)",
-        "You got a perfect score on the test! (+15 Grades)",
-        "You helped a teammate train! (+10 Energy)",
-        "You met a new friend! (+10 Social)"
-    ];
-    const event = events[Math.floor(Math.random() * events.length)];
-    alert(event);
+function openUI(section) {
+    let content = "";
+    if (section === "createSim") {
+        content = "<h3>Create or Edit Sim</h3><p>Customize your character here.</p>";
+    } else if (section === "relationships") {
+        content = "<h3>Relationships</h3><p>View friendships and romantic interests.</p>";
+    } else if (section === "stats") {
+        content = `<h3>Player Stats</h3>
+        <p>Energy: ${gameState.player.energy}</p>
+        <p>Social: ${gameState.player.social}</p>
+        <p>Money: $${gameState.player.money}</p>`;
+    }
+    document.getElementById("uiContent").innerHTML = content;
 }
 
 document.addEventListener("DOMContentLoaded", function() {

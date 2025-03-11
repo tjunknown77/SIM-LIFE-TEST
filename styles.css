@@ -45,7 +45,7 @@ img {
     width: 90%;
     border-radius: 10px;
 }
-.map-buttons, .activity-buttons {
+.map-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -61,4 +61,17 @@ img {
 }
 .map-btn:hover, .activity-btn:hover {
     background-color: #005f99;
+}
+#sideMenu {
+    position: fixed;
+    top: 10%;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+}
+#sideMenu button {
+    display: block;
+    margin-bottom: 5px;
+    background-color: #ffcc00;
 }
