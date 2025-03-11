@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimLife Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Welcome to SimLife!</h1>
+    <p>This is a simulation game.</p>
+    <button onclick="startGame()">Start Game</button>
+    
+    <h2>Character Creation</h2>
+    <label for="playerName">Name:</label>
+    <input type="text" id="playerName" placeholder="Enter your name">
+    <label for="playerGender">Gender:</label>
+    <select id="playerGender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+    
+    <h3>Upload Character Image</h3>
+    <input type="file" id="imageUpload" accept="image/*">
+    <img id="playerImage" src="https://via.placeholder.com/100" alt="Player Image">
+
+    <div id="gameArea"></div>
+</body>
+</html>
