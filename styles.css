@@ -3,8 +3,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    background-size: cover;
-    background-position: center;
+    background-color: #f4f4f4;
     color: white;
 }
 header {
@@ -38,29 +37,20 @@ img {
     height: 120px;
     border-radius: 50%;
 }
+.map-image {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    border: 3px solid #ffcc00;
+    border-radius: 10px;
+}
 #hud {
     background: rgba(0, 0, 0, 0.6);
     padding: 10px;
     margin: 10px auto;
     width: 90%;
     border-radius: 10px;
-}
-.map-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-.map-btn, .activity-btn {
-    background-color: #007acc;
-    padding: 10px 15px;
-    border-radius: 5px;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-.map-btn:hover, .activity-btn:hover {
-    background-color: #005f99;
 }
 #sideMenu {
     position: fixed;
